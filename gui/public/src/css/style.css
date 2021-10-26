@@ -1,0 +1,431 @@
+body {
+  margin: 0;
+}
+
+/* for 'runner_tool.erb' ----------------------------*/
+
+header {
+  width: 100%;
+  color: white;
+  background-color: lightcoral;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  padding: 5px 0;
+
+  position: relative; /* for 'lock', 'menu' and 'toggle' buttons */
+}
+
+#lock-btn.top-item {
+  bottom: 10px;
+  right: 40px;
+} 
+
+.top-item {
+  position: absolute;
+
+  width: 40px;
+  height: 30px;
+
+  background-color: lightcoral;
+  color: white;
+  border: 3px solid white;
+  border-radius: 2px;
+}
+
+.top-item:hover {
+  cursor: pointer;
+}
+
+.top-item:active {
+  background-color: indianred;
+}
+
+
+header > h1 {
+  display: block;
+
+  text-align: center;
+  font-size: 2.5em;
+
+  margin: 10px;
+}
+
+header > h2 {
+  display: block;
+
+  text-align: center;
+  font-size: 1.5em;
+
+  margin: 10px;
+}
+
+/* for 'inputarea.erb' ----------------------------*/
+
+#inputarea {
+  padding: 5px;
+  position: relative;
+}
+
+#inputarea textarea, input {
+  margin-left: 20px;
+  width: 100%;
+
+  border: 1px solid darkgray;
+  outline: 0;
+}
+#inputarea textarea:focus, input:focus {
+  border-color: dimgray;
+}
+
+#inputarea input {
+  margin-bottom: 20px;
+}
+
+#inputarea textarea {
+  min-height: 30px;
+}
+
+
+#inputarea #code-area {
+  margin-left: 20px;
+  width: 100%;
+  min-height: 450px;
+}
+
+#inputarea .label {
+  display: block;
+  font-weight: bold;
+  color: darkgray;
+  margin-bottom: 2px;
+}
+
+#inputarea h2 {
+  display: block;
+  color: dimgray;
+  font-size: 1.35em;
+}
+
+/* readonly label (top-right corner of 'inputarea') */
+
+#readonly-info {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+
+  font: sans-serif;
+  color: indianred;
+
+  font-size: 0.75em;
+}
+
+/* circular buttons: */
+
+.containing {
+  width: 90%;
+  position: relative; /* for: '#run-btn' */
+}
+
+#inputarea .copy-btn {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+
+  background-color: white;
+  border: 2px solid darkgray;
+  color: darkgray;
+
+  transition: color 500ms, border-color 500ms;
+
+  position: absolute;
+  top: 5px;
+  right: -60px;
+
+  z-index: 5; /* above #run-btn */ 
+  outline: 4px solid white;
+}
+
+#inputarea .copy-btn:hover {
+  color: dimgray;
+  border-color: dimgray;
+}
+
+
+#inputarea .copy-btn.animation-running {
+  animation: copy-fadeout 1s;
+}
+
+@keyframes copy-fadeout {
+  from {background-color: green; color: white;}
+  to {background-color: white;}
+}
+
+#inputarea #run-btn {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.75em;
+
+  background-color: white;
+  border: 3px solid lightcoral;
+  color: lightcoral;
+
+  transition: color 1s, border-color 1s;
+
+  position: absolute;
+  top: 10px;
+  right: -110px;
+
+  z-index: 4;
+}
+
+#inputarea #run-btn:hover {
+  border: 3px solid indianred;
+  color: indianred;
+}
+
+/* nice scroll ---------------------------------------------------- */
+.nice-scroll { /* OPTIMIZE make this to be sufficient as wrapper div, remove this class form body (support in browsers might be problems now) */
+  overflow-y: auto;
+}
+
+#inputarea #run-btn:active {
+  background-color: indianred;
+}
+
+#inputarea #run-btn:active > i {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.nice-scroll::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.nice-scroll::-webkit-scrollbar
+{
+  width: 9px;
+  background-color: #F5F5F5;
+}
+
+.nice-scroll::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: darkgray;
+}
+
+.nice-scroll::-webkit-scrollbar-thumb:hover
+{
+  border-radius: 10px;
+  background-color: dimgray;
+}
+
+/* Responsvie Design ---------------------------------------------------- */
+
+@media only screen and (max-width: 1000px) {
+  #inputarea #run-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 1em; 
+
+    right: -60px;
+    top: 40px; 
+
+    border-width: 2px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #inputarea .copy-btn {
+    right: -20px;
+    outline-width: 1px;
+  }
+
+  #inputarea #run-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 1em; 
+
+    right: -20px;
+    top: 40px; 
+  }
+}
+
+
+/* '#pages' (aside menu) ------------------------------------- */
+
+aside {
+  width: 15%;
+  background-color: lightcoral;
+  color: white;
+
+  z-index: 5;
+
+  min-height: 400px;
+
+
+  position: absolute;
+}
+
+aside #padding {
+  padding: 2px;
+}
+
+aside #control i {
+  cursor: pointer;
+  height: 16px;
+  padding: 2px 1%;
+  width: 3%;
+  min-width: 10px;
+
+  display: inline-block;
+  text-align: center;
+}
+
+aside #control #search-add {
+  width: 89%;
+  margin: 0;
+  border: 0;
+  outline: 0;
+
+  height: 20px;
+}
+
+#pages {
+  padding: 0;
+}
+
+#pages li {
+  width: 100%;
+  padding: 2px 0;
+  text-align: right;
+  
+
+  display: block;
+  cursor: default;
+}
+
+#pages li:hover {
+  background-color: indianred;
+}
+
+#pages li span {
+  text-align: left;
+}
+
+#pages li i {
+  width: 20px;
+  display: inline-block;
+  cursor: not-allowed;
+}
+
+#pages li i[data-action] {
+  cursor: pointer;
+}
+
+
+#pages li.page-selected::before {
+  content: '➤ ';
+  font-size: 0.8em;
+}
+
+/* hiding/showing menu: */
+
+#menu-btn {
+  bottom: 10px;
+  left: 20px;
+}
+
+#menu-hide-btn {
+  font-size: 3em;
+  text-align: center;
+
+  width: 100%;
+  height: 50px;
+
+  margin-top: 5px;
+  border-top: 1px solid white;
+}
+
+#menu-hide-btn span {
+  cursor: default;
+}
+
+#menu-hide-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* renaming current page div: */
+
+#namediv {
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
+
+  text-align: center;
+}
+
+#namediv div {
+  position: relative;
+}
+
+#namediv #underline-effect {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+
+  width: 0;
+  border-bottom: 0;
+  border-radius: 3px;
+  transition: width 600ms, left 600ms;
+}
+
+#namediv:hover #underline-effect {
+  border-bottom: 2px solid white;
+  width: 100%;
+  left: 0;
+}
+
+#namediv input {
+  margin: 0;
+  display: none;
+  border: 0;
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  width: 150px;
+}
+
+#namediv.editing {
+  width: 180px;
+}
+
+#namediv.editing input{
+  display: inline-block;
+}
+
+#namediv.editing span {
+  display: none;
+}
+
+#namediv.editing #underline-effect {
+  border-bottom: 2px solid white;
+  width: 100%;
+  left: 0;
+}
+
+#namediv span {
+  display: inline-block;
+  text-align: left;
+  padding-left: 2px; /* for underline */
+}
+
+#namediv i {
+  display: inline-block;
+  min-width: 20px;
+  text-align: left;
+  padding-left: 4px;
+
+  cursor: pointer;
+}

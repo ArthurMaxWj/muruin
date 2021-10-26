@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>RunnerTool</title>
+        <!-- Google Fonts + Material-Icons -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/f7bfb79497.js" crossorigin="anonymous"></script>
+
+        <!-- jQiery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+
+        <!-- Our own scripts/styles: -->
+        <link rel="stylesheet" type="text/css" href="src/css/style.css"/>
+        <script src="compiled/js/run.js"></script>
+        <script src="compiled/js/actionsAnimations.js"></script>
+        <script src="compiled/js/pages/View.js"></script>
+        <script src="compiled/js/pages/Page.js"></script>
+
+    </head>
+    <body class="nice-scroll">
+        <div class="nice-scroll">
+        <header>
+            <h1>Muruin</h1>
+            <h2>Multiple Runner Interface</h2>
+            <!-- "position: absolute" elements: -->
+            <button id="lock-btn" class="top-item"><i class="fas fa-lock"></i></button>
+            <button id="menu-btn" class="top-item"><i class="fas fa-caret-down"></i></button>
+            <div id="namediv"> <!-- renaming pages -->
+              <div>
+                <input type="text" autocomplete='off' spellcheck='false' autocorrect='off'/><span>my-page</span><i class="fas fa-pencil-alt"></i>
+                <div id="underline-effect"></div>
+              </div>
+            </div>
+
+            <!-- '#pages' menu: -->
+            <aside>
+                <div id="menu-hide-btn"><span class="material-icons">west</span></div>
+                <div id="padding">
+                <div id="control">
+                    <input type="text" placeholder="Add/Go..." id="search-add"  autocomplete='off' spellcheck='false' autocorrect='off'/><i class="fas fa-plus"></i>
+                </div>
+                <ul id="pages">
+                </ul>
+                </div>
+            </aside>
+        </header>
+        <%= erb :inputarea %>
+        </div>
+    </body>
+
+</html>

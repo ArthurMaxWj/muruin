@@ -1,0 +1,28 @@
+<div id="inputarea">
+    <div id="readonly-info">READONLY</div>
+    <span class="label">Your code goes here:</span>
+    <div class="containing">
+        <button id="run-btn"><i class="fas fa-play"></i></button>
+        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+        <textarea id="code-area" class="nice-scroll" autocomplete='off' spellcheck='false' autocorrect='off'></textarea>
+    </div>
+
+    <div id="resultarea">
+    <h2> Results:</h3>
+    <span class="label">Output Stream:</span>
+    <div class="containing">
+        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+        <textarea id="output-area" class="nice-scroll" readonly></textarea>
+    </div>
+    <span class="label">Error Stream: </span>
+    <div class="containing">
+        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+        <textarea id="error-area" class="nice-scroll" readonly></textarea>
+    </div>
+    <span class="label">Error Code: </span>
+    <div class="containing">
+        <button class="copy-btn" style="top: 0;"><i class="fas fa-copy"></i></button>
+        <input id="error-code" readonly/>
+    </div>
+    </div>
+</div>
